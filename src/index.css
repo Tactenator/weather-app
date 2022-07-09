@@ -1,13 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; 
+  background: linear-gradient(to bottom, rgb(104, 179, 240), rgb(32, 132, 226));
+  height: 100%; 
+  background-attachment: fixed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  position: absolute;  
+  z-index: -2; 
+  left: 80%;
+  top: 60%;  
+  display: flex; 
+}
+
+.weather-container {
+  margin: 0 0; 
+  display: block;
+  font-family: 'Oswald', sans-serif;   
+  width: 300px;  
+  height: 300px; 
+  border-radius: 15px; 
+  /* background: linear-gradient(to bottom, rgb(104, 179, 240), rgb(32, 132, 226)); */
+  background: linear-gradient(to bottom, rgb(26, 77, 136), rgb(12, 24, 128));
+  justify-content: center;
+  border: solid 1px black; 
+  overflow: hidden;  
+  /* animation-name: lightning; 
+  animation-duration: 10s; 
+  transition-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-delay: 4s; */
+}
+
+.toggle-button{
+  position: absolute; 
+  left: 200%;
+  top: 25%;
+  transform: rotate(-90deg); 
+  transition: 0.3s;
+}
+
+.toggle-button span { 
+  width: 45px;
+  height: 4px;
+  background: #fff;
+  display: block;
+  margin-top: 4px;
+  z-index: 2; 
+}
+
+.weather-info-container {
+  background: linear-gradient(to bottom, rgb(190, 190, 190), rgb(134, 134, 134)); 
+  height: 300px; 
+  width: 300px; 
+  border-radius: 15px; 
+  border: 1px solid black;
+  position: absolute; 
+  z-index: -1; 
+  transition: 0.3s; 
+  bottom: 0%; 
+}
+
+.city-name {
+  margin: 0 0; 
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.city-temp-container {
+  display: flex; 
+  flex-direction: column;
+}
+
+.city-description-temp {
+  position: absolute; 
+  z-index: 2;
+  left: -5%;
+  color: white; 
+}
+
+.temp-buttons {
+  pointer-events: none; 
+  margin-right: 10px; 
+}
+
+.temp { 
+  left: 5%;
+  top: 65%;
+  font-size: 44px;  
+  color: white; 
+  margin: 0 0; 
+}
+
+.temp-f-c {
+  display: flex; 
+  align-items: center; 
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.date {
+  margin-left: 55px; 
+  margin-top: 0; 
+  margin-bottom: 0; 
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+.description {
+  color: white; 
+  font-size: 22px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.description-temp {
+  display: flex; 
+  position: absolute; 
+  left: 5%; 
+  top: 67%; 
+  align-items: center; 
+  gap: 60px; 
+  z-index: 1;
+}
+
+.forecast-container 
+{
+  position: absolute; 
+  display: flex; 
+  height: 140px; 
+  width: 300px; 
+  align-items: center;
+  justify-content: center;
+  left: 15.9%; 
+  z-index: 2; 
+  color: white; 
+  gap: 10px;
+  left: 0%;  
+  opacity: 0; 
+}
+
+.farh,.cels {
+  background-color: transparent; 
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white; 
+  font-size: 24px;  
+}
+
+.farh:hover,.cels:hover {
+  opacity: 0.7;
+  cursor: pointer;  
+}
+/* The Sun */
+
+/* .sun {
+  position: absolute; 
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  left: 3%;
+  top: 37%;
+  background: linear-gradient(to bottom, rgb(250, 250, 71), yellow); 
+  z-index: 3; 
+  animation: rotate 12s linear infinite;
+}
+
+.rays {
+  position: absolute;
+  top: -2.5em;
+  left: 51%;
+  display: block;
+  width: 3px; 
+  height: 30px; 
+  margin-left: -0.1875em;
+  background: yellow;
+  border-radius: 0.25em;
+  box-shadow: 0 7.975em yellow;
+}
+
+.rays:before {
+  content: '';
+  position: absolute;
+  top: -2em;
+  left: -2em;
+  display: block;
+  width: 3px; 
+  height: 30px; 
+  transform: rotate(90deg);
+  transform-origin: 50% 7em;
+  background: yellow;
+  border-radius: 0.25em;
+  box-shadow: 0 7.975em yellow;
+}
+
+.ray:before {
+  transform: rotate(120deg);
+} */
+
+/* Clouds - Cloudy/Windy Day*/
+
+/* .cloud {
+  position: absolute; 
+  left: 5%; 
+  background: white; 
+  border-radius: 1000px; 
+  z-index: 0; 
+  animation: zoomies 5s infinite linear; 
+}
+
+.cloud::before {
+  position: absolute; 
+  content: ''; 
+  top: -80%; 
+  left: 12%; 
+  width: 50%; 
+  height: 150%; 
+  background: white; 
+  border-radius: 50%; 
+  opacity: 0;
+}
+
+.cloud::after {
+  position: absolute; 
+  content: ''; 
+  top: -50%; 
+  left: 55%; 
+  width: 25%; 
+  height: 75%; 
+  background: white; 
+  border-radius: 50%; 
+  opacity: 0;
+}
+
+.cloud.one {
+  top: 15%; 
+  width: 60px; 
+  height: 20px; 
+  opacity: 0;
+}
+
+.cloud.two {
+  top: 25%;
+  left: 0%;  
+  width: 90px; 
+  height: 30px; 
+  animation-duration: 6s;
+  opacity: 0; 
+}
+
+.cloud.three {
+  top: 20%; 
+  width: 45px; 
+  height: 15px; 
+  animation-duration: 7s;
+  opacity: 0;
+}
+
+.cloud.four {
+  top: 18%; 
+  width: 60px; 
+  height: 20px; 
+  animation-duration: 8s;
+  opacity: 0;
+} */
+
+/* Rain and Big Cloud for Rain/Storms */
+
+.cloud.big { 
+  content: '';
+  position: absolute; 
+  top: 0%; 
+  left: 0%; 
+  width: 201px; 
+  height: 100px; 
+  border-radius: 15px; 
+  z-index: 1;  
+  background: linear-gradient(to bottom, grey, black); 
+}
+
+i {
+  position: absolute; 
+  height: 50px;
+  top: 0px;
+  background: linear-gradient(transparent, #fff); 
+  animation: rain 5s linear infinite; 
+  overflow: hidden;  
+  z-index: 0;
+}
+
+s {
+  position: absolute; 
+  height: 8px;
+  width: 8px; 
+  border-radius: 50%; 
+  top: 0px;
+  overflow-y: hidden;
+  background: white;  
+  animation: snowing 5s linear infinite; 
+  overflow: hidden;  
+  z-index: 0;
+}
+
+i:nth-child(3n+1){
+  background: linear-gradient(transparent, #72a4dd)
+}
+i:nth-child(3n+2){
+  background: linear-gradient(transparent, #12528d)
+}
+i:nth-child(3n+3){
+  background: linear-gradient(transparent, #00a2ff)
+}
+
+/* Animations */
+
+@keyframes rain {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(calc(20vh + 65px));
+  }
+}
+
+@keyframes snowing {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(calc(20vh + 105px));
+  }
+}
+
+@keyframes lightning {
+  0% {
+    background: linear-gradient(to bottom, grey, rgb(46, 46, 46)); 
+  }
+  5% {
+    background: white; 
+  }
+  6% {
+    background: rgba(194, 194, 194, 0.8);
+  }
+  7% {
+    background: white; 
+  }
+  14.5% {
+    background: linear-gradient(to bottom, grey, rgb(46, 46, 46)); 
+  }
+  100% {
+    background: linear-gradient(to bottom, grey, rgba(46, 46, 46,)); 
+  }
+}
+
+/* @keyframes zoomies {
+  from{
+    left: -0; 
+    transform: translateX(-100%)
+  }
+  to{
+    left: 20%; 
+      transform: translateX(0%)
+  }
+} */
+
+/* @keyframes rotate {
+  100% { transform: rotate(360deg); }
+} */
+
+.todo-container {
+  background: white; 
+  position: relative; 
+  border-radius: 15px; 
+  width: 450px;
+  height: 100%;  
+  top: 0; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border: solid black 1px; 
+}
+
+.show-todo 
+{
+  position: absolute; 
+  left: 10%;
+  margin-top: 10px; 
+  font-size: 40px; 
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  transition: 0.3s; 
+}
+
+.todo-title {
+  margin-top: 5px; 
+  font-size: 22px; 
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none; 
+}
+
+.todo-create-button {
+  position: absolute; 
+  left: 7%; 
+  top: 2%;
+  padding: 5px; 
+  height: 35px; 
+  width: 35px; 
+  font-size: 22px; 
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none; 
+}
+
+.todo-create-button:hover {
+  background-color: black; 
+  color: white; 
+  border-radius: 50%; 
+}
+
+.todo-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.item-container {
+  display: flex; 
+  gap: 100px; 
+  margin-left: 15px; 
+  align-items: center; 
+  justify-content: center;
+  margin-top: 10px; 
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; 
+}
+
+.item-list 
+{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  max-width: 350px; 
+  gap: 120px; 
+}
+
+.item-list:hover {
+  cursor: pointer; 
+}
+
+.item {
+  width: 150px; 
+  max-width: 150px; 
+}
+
+.item-strike 
+{
+  background: white; 
+  padding: 10px; 
+  border: blue 2px solid; 
+  border-radius: 15px; 
+  width: 80px; 
+  color: black; 
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;  
+}
+
+.item-delete {
+  background: white; 
+  padding: 6px; 
+  border: none;  
+  border-radius: 15px; 
+  width: 80px;
+  font-size: 22px;  
+  color: red; 
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;  
+ 
+}
+
+.item-delete:hover {
+  background: red; 
+  color: white; 
+  
 }
